@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Pilot | Admin Companies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+
+<body>
+    <div class="admin-shell container-fluid p-0">
+        <div class="row g-0">
+            <aside class="col-lg-2 admin-sidebar p-3">
+                <div class="d-flex align-items-center mb-4">
+                    <span class="brand-badge"><img
+                            src="..\carreer_pilot_logo.png"
+                            alt="Career Pilot logo" /></span>
+                </div>
+                <nav class="nav flex-column">
+                    <a class="nav-link" href="admin.html"><i class="fa-solid fa-gauge me-2"></i>Dashboard</a>
+                    <a class="nav-link active" href="companies.html"><i
+                            class="fa-solid fa-building me-2"></i>Companies</a>
+                    <a class="nav-link" href="questions.html"><i
+                            class="fa-solid fa-question-circle me-2"></i>Questions</a>
+                    <a class="nav-link" href="experiences.html"><i class="fa-solid fa-comments me-2"></i>Interview
+                        Experiences</a>
+                    <a class="nav-link" href="users.html"><i class="fa-solid fa-users me-2"></i>Users</a>
+                    <a class="nav-link" href="interviews.html"><i class="fa-solid fa-robot me-2"></i>AI Interviews</a>
+                    <a class="nav-link" href="plans.html"><i class="fa-solid fa-crown me-2"></i>Premium Plans</a>
+                    <a class="nav-link" href="settings.html"><i class="fa-solid fa-gear me-2"></i>Settings</a>
+                    <a class="nav-link" href="../index.html"><i
+                            class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
+                </nav>
+            </aside>
+
+            <main class="col-lg-10 admin-content">
+                <div class="admin-topbar px-4 py-3 d-flex justify-content-between align-items-center rounded-3 mb-4">
+                    <div>
+                        <h4 class="mb-0">Companies</h4>
+                    </div>
+                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#companyModal">+ Add
+                        Company</button>
+                </div>
+
+                <div class="admin-card p-4">
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <input class="form-control" id="companySearch" type="search" placeholder="Search company"
+                                aria-label="Search companies">
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-select" id="companyStatusFilter">
+                                <option value="">All statuses</option>
+                                <option value="Active">Active</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Sector</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="companyTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal fade" id="companyModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="companyModalTitle">Add Company</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="companyForm">
+                        <input type="hidden" id="companyId" name="companyId" />
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="companyName">Company Name</label>
+                                <input class="form-control" id="companyName" name="companyName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="companySector">Industry / Sector</label>
+                                <input class="form-control" id="companySector" name="companySector">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="companyLocation">Location</label>
+                                <input class="form-control" id="companyLocation" name="companyLocation">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="companyRole">Job Role</label>
+                                <input class="form-control" id="companyRole" name="companyRole">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="companyPackage">Package / Salary</label>
+                                <input class="form-control" id="companyPackage" name="companyPackage">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="companyStatus">Company Status</label>
+                                <select class="form-select" id="companyStatus" name="companyStatus">
+                                    <option value="Active">Active</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label" for="companyDescription">Company Description</label>
+                                <textarea class="form-control" id="companyDescription" name="companyDescription" rows="3"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label" for="companyPdf">Company Preparation PDF</label>
+                                <input class="form-control" id="companyPdf" name="companyPdf" type="file" accept="application/pdf">
+                                <small class="text-muted d-block mt-1" id="companyPdfName">No PDF selected</small>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Interview Rounds</label>
+                                <div class="row g-2" id="roundCheckboxList">
+                                    <div class="col-md-4"><label class="form-check-label"><input class="form-check-input me-2" type="checkbox" value="Aptitude Round" data-round-option> Aptitude Round</label></div>
+                                    <div class="col-md-4"><label class="form-check-label"><input class="form-check-input me-2" type="checkbox" value="DSA Round" data-round-option> DSA Round</label></div>
+                                    <div class="col-md-4"><label class="form-check-label"><input class="form-check-input me-2" type="checkbox" value="Technical Round" data-round-option> Technical Round</label></div>
+                                    <div class="col-md-4"><label class="form-check-label"><input class="form-check-input me-2" type="checkbox" value="Project Round" data-round-option> Project Round</label></div>
+                                    <div class="col-md-4"><label class="form-check-label"><input class="form-check-input me-2" type="checkbox" value="Managerial Round" data-round-option> Managerial Round</label></div>
+                                    <div class="col-md-4"><label class="form-check-label"><input class="form-check-input me-2" type="checkbox" value="HR Round" data-round-option> HR Round</label></div>
+                                    <div class="col-md-4"><label class="form-check-label"><input class="form-check-input me-2" type="checkbox" value="Other / Custom Round" data-round-option> Other / Custom Round</label></div>
+                                </div>
+                            </div>
+                            <div class="col-12" id="customRoundWrapper" style="display:none;">
+                                <label class="form-label" for="customRoundName">Custom Round Name</label>
+                                <input class="form-control" id="customRoundName" name="customRoundName" placeholder="e.g. Case Interview">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Selected Round Order</label>
+                                <div id="selectedRoundsList" class="list-group"></div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label" for="companyImportantQuestions">Company-specific Important Questions</label>
+                                <textarea class="form-control" id="companyImportantQuestions" name="companyImportantQuestions" rows="3" placeholder="Add important questions for this company"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" id="saveCompanyBtn" type="submit" form="companyForm">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/career-pilot-store.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+
+</html>

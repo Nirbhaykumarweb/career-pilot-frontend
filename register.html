@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account | Career Pilot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="loginstyle.css" />
+  </head>
+  <body class="register-page">
+    <div class="login-card register-card">
+      <section class="brand-panel">
+        <div class="brand-content">
+          <img
+            src="carreer_pilot_logo.png"
+            class="logo"
+            alt="Career Pilot — Get Placed"
+          />
+          <h1>
+            Prepare Smarter.<br />Interview Better.<br />Get Placement Ready.
+          </h1>
+          <p>
+            Your complete AI-powered campus placement preparation platform.
+          </p>
+          <ul class="register-benefits">
+            <li>Company-wise preparation tracks for 450+ companies</li>
+            <li>12,000+ aptitude, coding, CS-core and HR questions</li>
+            <li>AI mock interviews with instant scoring and feedback</li>
+            <li>Weak-topic detection and a personalized roadmap</li>
+          </ul>
+          <div class="register-trust">
+            ♧ <b>120K+</b> students and 900+ campus placement cells already
+            prepare with Career Pilot.
+          </div>
+          <div class="illustration-wrap">
+            <img
+              src="dream-job-illustration.png"
+              alt="Student preparing for dream job"
+              class="illustration"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="form-panel register-form-panel">
+        <form class="register-form" onsubmit="return demoRegister(event);">
+          <h2>Create your free account</h2>
+          <p>Set up your student profile in a minute and start preparing.</p>
+
+          <label for="register-name">Full name</label>
+          <input
+            id="register-name"
+            name="fullName"
+            required
+            placeholder="e.g. Ankush Singh"
+          />
+
+          <label for="register-email">Email address</label>
+          <input
+            id="register-email"
+            name="email"
+            required
+            type="email"
+            placeholder="you@college.edu"
+          />
+
+          <div class="register-fields">
+            <div>
+              <label for="register-password">Password</label>
+              <input
+                id="register-password"
+                name="password"
+                required
+                type="password"
+                minlength="6"
+                placeholder="Create password"
+              />
+            </div>
+            <div>
+              <label for="register-confirm">Confirm password</label>
+              <input
+                id="register-confirm"
+                name="confirmPassword"
+                required
+                type="password"
+                minlength="6"
+                placeholder="Confirm password"
+              />
+            </div>
+          </div>
+
+          <div class="register-fields">
+            <div>
+              <label for="register-college">College / University</label>
+              <input
+                id="register-college"
+                name="college"
+                placeholder="Your college"
+              />
+            </div>
+            <div>
+              <label for="register-year">Graduation year</label>
+              <select id="register-year" name="graduation">
+                <option value="">Select year</option>
+                <option>2027</option>
+                <option>2028</option>
+                <option>2029</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="register-role">Target role</label>
+          <input
+            id="register-role"
+            name="role"
+            placeholder="e.g. Software Developer"
+          />
+
+          <label>Target companies</label>
+          <div class="register-chips">
+            <button type="button" data-company-choice>TCS</button>
+            <button type="button" data-company-choice>Infosys</button>
+            <button type="button" data-company-choice>Wipro</button>
+            <button type="button" data-company-choice>Accenture</button>
+          </div>
+
+          <label class="register-terms">
+            <input type="checkbox" required />
+            <span
+              >I agree to the
+              <a href="index.html#footer">Terms and Privacy Policy</a>.</span
+            >
+          </label>
+
+          <button class="register-submit" type="submit">
+            Create free account →
+          </button>
+          <p class="register-login-link">
+            Already have an account? <a href="login.html">Log in</a>
+          </p>
+        </form>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

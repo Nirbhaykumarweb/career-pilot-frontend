@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Pilot - Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+<div class="login-card">
+  <section class="brand-panel">
+    <div class="brand-content">
+      <img src="carreer_pilot_logo.png" class="logo" alt="Career Pilot - Get Placed">
+      <h1>Welcome back</h1>
+      <p>Log in to continue your placement preparation journey.</p>
+      <p class="desc">Your preparation journey continues. Log in to access company drives, question banks, AI interview simulations, and progress tracking.</p>
+
+      <div class="progress-card">
+        <div class="progress-head"><b>Preparation Level</b><span>High</span></div>
+        <div class="progress"><i></i></div>
+      </div>
+
+      <div class="illustration-wrap">
+        <img src="dream-job-illustration.png" alt="Student preparing for dream job" class="illustration">
+      </div>
+    </div>
+  </section>
+
+  <section class="form-panel">
+    <div class="form-inner">
+      <h2>Login to <span>Your Account</span></h2>
+
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <div class="input-wrap">
+          <span class="icon">✉</span>
+          <input id="email" type="email" placeholder="Enter your email" required>
+        </div>
+
+        <label for="password">Password</label>
+        <div class="input-wrap">
+          <span class="icon">🔒</span>
+          <input id="password" type="password" placeholder="Enter your password" required>
+          <button type="button" class="eye" id="togglePassword">◉</button>
+        </div>
+
+        <div class="options">
+          <label class="remember"><input type="checkbox"> <span>Remember me</span></label>
+          <a href="../forgot-password.html">Forgot Password?</a>
+        </div>
+
+        <button class="login-btn" type="submit">Login <b>→</b></button>
+        <button class="google-btn" type="button"><strong>G</strong> Login with Google</button>
+      </form>
+
+      <div class="divider"><span>OR</span></div>
+      <p class="signup">New to Career Pilot? <a href="register.html">Create a free account</a></p>
+    </div>
+  </section>
+</div>
+<script src="loginscript.js"></script>
+</body>
+</html>

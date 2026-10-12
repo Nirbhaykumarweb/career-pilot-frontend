@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Pilot | Admin Questions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+
+<body>
+    <div class="admin-shell container-fluid p-0">
+        <div class="row g-0">
+            <aside class="col-lg-2 admin-sidebar p-3">
+                <div class="d-flex align-items-center mb-4">
+                    <span class="brand-badge"><img
+                            src="..\carreer_pilot_logo.png"
+                            alt="Career Pilot logo" /></span>
+                </div>
+                <nav class="nav flex-column">
+                    <a class="nav-link" href="admin.html"><i class="fa-solid fa-gauge me-2"></i>Dashboard</a>
+                    <a class="nav-link" href="companies.html"><i class="fa-solid fa-building me-2"></i>Companies</a>
+                    <a class="nav-link active" href="questions.html"><i
+                            class="fa-solid fa-question-circle me-2"></i>Questions</a>
+                    <a class="nav-link" href="experiences.html"><i class="fa-solid fa-comments me-2"></i>Interview
+                        Experiences</a>
+                    <a class="nav-link" href="users.html"><i class="fa-solid fa-users me-2"></i>Users</a>
+                    <a class="nav-link" href="interviews.html"><i class="fa-solid fa-robot me-2"></i>AI Interviews</a>
+                    <a class="nav-link" href="plans.html"><i class="fa-solid fa-crown me-2"></i>Premium Plans</a>
+                    <a class="nav-link" href="settings.html"><i class="fa-solid fa-gear me-2"></i>Settings</a>
+                    <a class="nav-link" href="../index.html"><i
+                            class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
+                </nav>
+            </aside>
+
+            <main class="col-lg-10 admin-content">
+                <div class="admin-topbar px-4 py-3 d-flex justify-content-between align-items-center rounded-3 mb-4">
+                    <div>
+                        <h4 class="mb-0">Questions</h4>
+                    </div>
+                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#questionModal">+ Add Question</button>
+                </div>
+
+                <div class="admin-card p-4">
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <input class="form-control" id="questionSearch" type="search" placeholder="Search question..." aria-label="Search questions">
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-select" id="questionCompanyFilter">
+                                <option value="">All companies</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Topic</th>
+                                    <th>Type</th>
+                                    <th>Difficulty</th>
+                                    <th>Company</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="questionTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal fade" id="questionModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="questionModalTitle">Add Question</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="questionForm">
+                        <input type="hidden" id="questionId" name="questionId" />
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="questionCompany">Company</label>
+                                <select class="form-select" id="questionCompany" name="questionCompany">
+                                    <option value="">General / All</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="questionRound">Interview Round</label>
+                                <select class="form-select" id="questionRound" name="questionRound">
+                                    <option value="general">General</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="questionTopic">Topic</label>
+                                <input class="form-control" id="questionTopic" name="questionTopic" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="questionDifficulty">Difficulty</label>
+                                <select class="form-select" id="questionDifficulty" name="questionDifficulty">
+                                    <option value="Easy">Easy</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Hard">Hard</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label" for="questionText">Question</label>
+                                <textarea class="form-control" id="questionText" name="questionText" rows="3" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label" for="questionAnswer">Answer / Explanation</label>
+                                <textarea class="form-control" id="questionAnswer" name="questionAnswer" rows="3"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label" for="questionTags">Optional tags</label>
+                                <input class="form-control" id="questionTags" name="questionTags" placeholder="e.g. DBMS, SQL, Communication">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label" for="questionPdf">Upload PDF (optional)</label>
+                                <input class="form-control" id="questionPdf" name="questionPdf" type="file" accept="application/pdf">
+                                <small class="text-muted">This is saved with the question and can be downloaded later.</small>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit" form="questionForm">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/career-pilot-store.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+
+</html>

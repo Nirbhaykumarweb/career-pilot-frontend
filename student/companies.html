@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Pilot | Companies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/responsive.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+</head>
+
+<body class="student-shell">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <aside class="col-lg-2 student-sidebar p-3">
+                <div class="d-flex align-items-center mb-4">
+                    <span class="brand-badge"><img
+                            src="..\carreer_pilot_logo.png"
+                            alt="Career Pilot logo" /></span>
+                </div>
+                <nav class="nav flex-column">
+                    <a class="nav-link" href="dashboard.html"><i class="fa-solid fa-gauge me-2"></i>Dashboard</a>
+                    <a class="nav-link active" href="companies.html"><i
+                            class="fa-solid fa-building me-2"></i>Companies</a>
+                    <a class="nav-link" href="interview-preparation.html"><i
+                            class="fa-solid fa-book-open me-2"></i>Preparation</a>
+                    <a class="nav-link" href="questions.html"><i
+                            class="fa-solid fa-question-circle me-2"></i>Questions</a>
+                    <a class="nav-link" href="dsa.html"><i class="fa-solid fa-code me-2"></i>DSA</a>
+                    <a class="nav-link" href="aptitude.html"><i class="fa-solid fa-brain me-2"></i>Aptitude</a>
+                    <a class="nav-link" href="projects.html"><i
+                            class="fa-solid fa-diagram-project me-2"></i>Projects</a>
+                    <a class="nav-link" href="ai-interview.html?source=student"><i class="fa-solid fa-robot me-2"></i>AI Interview</a>
+                    <a class="nav-link" href="interview-experience.html"><i
+                            class="fa-solid fa-comments me-2"></i>Experiences</a>
+                    <a class="nav-link" href="progress.html"><i class="fa-solid fa-chart-line me-2"></i>Progress</a>
+                    <a class="nav-link" href="saved.html"><i class="fa-solid fa-bookmark me-2"></i>Saved</a>
+                    <a class="nav-link" href="profile.html"><i class="fa-solid fa-user me-2"></i>Profile</a>
+                    <a class="nav-link" href="settings.html"><i class="fa-solid fa-gear me-2"></i>Settings</a>
+                    <a class="nav-link" href="../index.html"><i
+                            class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
+                </nav>
+            </aside>
+
+            <main class="col-lg-10 content-panel">
+                <div class="page-header">
+                    <h2 class="mb-1">Companies</h2>
+                    <p class="mb-0 text-white-50">Explore companies, roles, packages, and interview rounds.</p>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <input id="companySearchInput" type="text" class="form-control" placeholder="Search company">
+                    </div>
+                    <div class="col-md-3">
+                        <select id="companyRoleFilter" class="form-select">
+                            <option value="">Job Role</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="companyStatusFilter" class="form-select">
+                            <option value="">Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="companySort" class="form-select">
+                            <option value="name">Sort by name</option>
+                            <option value="package">Sort by package</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="companyCards" class="row g-4"></div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/career-pilot-store.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const store = window.careerPilotStore;
+            const cardsContainer = document.getElementById('companyCards');
+            const searchInput = document.getElementById('companySearchInput');
+            const roleFilter = document.getElementById('companyRoleFilter');
+            const statusFilter = document.getElementById('companyStatusFilter');
+            const sortFilter = document.getElementById('companySort');
+
+            function renderCompanies() {
+                if (!cardsContainer || !store) return;
+                const companies = store.getCompanies();
+                const query = (searchInput?.value || '').trim().toLowerCase();
+                const selectedRole = roleFilter?.value || '';
+                const selectedStatus = statusFilter?.value || '';
+                const sortBy = sortFilter?.value || 'name';
+
+                const filtered = companies.filter((company) => {
+                    const matchesSearch = !query || [company.name, company.sector, company.location, company.jobRole].join(' ').toLowerCase().includes(query);
+                    const matchesRole = !selectedRole || company.jobRole === selectedRole;
+                    const matchesStatus = !selectedStatus || company.status === selectedStatus;
+                    return matchesSearch && matchesRole && matchesStatus;
+                });
+
+                filtered.sort((a, b) => {
+                    if (sortBy === 'package') {
+                        return String(b.package || '').localeCompare(String(a.package || ''));
+                    }
+                    return a.name.localeCompare(b.name);
+                });
+
+                const roles = Array.from(new Set(companies.map((company) => company.jobRole).filter(Boolean)));
+                roleFilter.innerHTML = '<option value="">Job Role</option>' + roles.map((role) => `<option value="${role}">${role}</option>`).join('');
+                if (selectedRole) roleFilter.value = selectedRole;
+                if (selectedStatus) statusFilter.value = selectedStatus;
+                if (sortBy) sortFilter.value = sortBy;
+
+                cardsContainer.innerHTML = filtered.map((company) => {
+                    const rounds = company.rounds || [];
+                    const boss = company.name || 'C';
+                    const initials = boss.split(' ').map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+                    const roundsText = rounds.length ? rounds.map((round) => round.name || round.type).join(' • ') : 'No rounds configured';
+                    return `
+                        <div class="col-md-6 col-xl-4">
+                            <div class="company-card p-4 h-100 card-hover">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="company-logo">${initials}</div>
+                                    <div>
+                                        <h5 class="mb-0">${company.name}</h5>
+                                        <small class="text-muted-soft">${company.jobRole}</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="chip">${company.package || 'Package not set'}</span>
+                                    <span class="text-muted-soft">${company.status || 'Active'}</span>
+                                </div>
+                                <p class="text-muted-soft">Rounds: ${rounds.length} • ${roundsText}</p>
+                                <a href="company-details.html?company=${encodeURIComponent(company.id)}" class="btn btn-primary w-100">Start Preparation</a>
+                            </div>
+                        </div>
+                    `;
+                }).join('') || '<div class="col-12"><div class="alert alert-info">No companies match your current filters.</div></div>';
+            }
+
+            if (searchInput) searchInput.addEventListener('input', renderCompanies);
+            if (roleFilter) roleFilter.addEventListener('change', renderCompanies);
+            if (statusFilter) statusFilter.addEventListener('change', renderCompanies);
+            if (sortFilter) sortFilter.addEventListener('change', renderCompanies);
+            renderCompanies();
+        });
+    </script>
+</body>
+
+</html>

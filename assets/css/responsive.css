@@ -1,0 +1,326 @@
+@media (max-width: 991.98px) {
+    .admin-shell {
+        min-height: auto;
+    }
+
+    .admin-sidebar {
+        position: relative;
+        min-height: auto;
+    }
+
+    .admin-sidebar .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .admin-sidebar .nav-link {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: 150px;
+        margin-bottom: 0;
+    }
+
+    .admin-content {
+        padding: 1rem;
+    }
+
+    .admin-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-section {
+        padding-top: 3rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .auth-side {
+        padding: 1.4rem;
+    }
+
+    .form-card {
+        padding: 1.25rem;
+    }
+
+    .page-header {
+        padding: 1.25rem 1rem;
+    }
+
+    .content-panel {
+        padding: 0.75rem;
+    }
+
+    .navbar .btn {
+        width: 100%;
+        margin-top: 0.65rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-sidebar .nav-link {
+        flex-basis: 100%;
+    }
+
+    .admin-content {
+        padding: 0.75rem;
+    }
+
+    .admin-card {
+        border-radius: 16px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .summary-card,
+    .feature-card,
+    .company-card,
+    .plan-card,
+    .testimonial-card {
+        border-radius: 18px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .action-row .btn {
+        width: auto;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .student-shell .container-fluid > .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .student-shell .student-sidebar {
+        position: sticky;
+        top: 0;
+        display: block;
+        flex: 0 0 auto;
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        padding: 0.65rem 1rem !important;
+        overflow: visible;
+        box-shadow: 0 6px 18px rgba(13, 28, 54, 0.12);
+    }
+
+    .student-shell .student-sidebar > .d-flex {
+        justify-content: flex-start;
+        margin-bottom: 0.6rem !important;
+    }
+
+    .student-shell .student-sidebar .brand-badge {
+        width: 128px;
+        height: 44px;
+        padding: 0.2rem;
+    }
+
+    .student-shell .student-sidebar .nav {
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        gap: 0.35rem;
+        margin: 0 -0.15rem;
+        padding: 0 0.15rem 0.3rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin;
+    }
+
+    .student-shell .student-sidebar .nav-link {
+        flex: 0 0 auto;
+        min-height: 38px;
+        margin: 0;
+        padding: 0.55rem 0.7rem;
+        white-space: nowrap;
+        font-size: 0.82rem;
+    }
+
+    .student-shell .student-sidebar .nav-link.active,
+    .student-shell .student-sidebar .nav-link:hover {
+        box-shadow: none;
+    }
+
+    .student-shell .content-panel {
+        flex: 1 1 auto;
+        width: 100%;
+        min-height: calc(100vh - 105px);
+        padding: 1.25rem;
+    }
+
+    .student-shell .content-panel::before {
+        padding: 0 1.25rem;
+    }
+
+    .student-shell .content-panel::after {
+        right: 1.25rem;
+    }
+
+    .student-shell .content-panel > :first-child {
+        margin-top: 64px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .student-shell .content-panel {
+        padding: 1rem;
+    }
+
+    .student-shell .content-panel::before,
+    .ai-interview-shell > .container::before {
+        height: 60px;
+    }
+
+    .student-shell .content-panel::before {
+        padding: 0 1rem;
+    }
+
+    .student-shell .content-panel::after {
+        right: 1rem;
+        height: 60px;
+        font-size: 0.76rem;
+    }
+
+    .student-shell .content-panel > :first-child {
+        margin-top: 54px;
+    }
+
+    .student-shell .page-header {
+        padding: 1.2rem;
+        border-radius: 15px;
+    }
+
+    .student-shell .summary-card,
+    .student-shell .timeline-card,
+    .student-shell .list-card,
+    .student-shell .feature-card,
+    .student-shell .company-card,
+    .student-shell .question-card {
+        border-radius: 15px;
+    }
+
+    .student-shell .row.g-4 {
+        --bs-gutter-y: 1rem;
+    }
+
+    .student-shell .btn,
+    .student-shell .btn.w-100,
+    .student-shell .action-row .btn {
+        width: auto;
+    }
+
+    .student-shell .btn.w-100 {
+        width: 100%;
+    }
+
+    .student-shell .action-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .student-shell .action-row .btn {
+        flex: 1 1 auto;
+    }
+
+    .student-shell .table-responsive {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .ai-interview-shell > .container {
+        padding-top: 4.8rem !important;
+    }
+
+    .student-shell > .container {
+        padding-top: 4.8rem !important;
+    }
+
+    .student-shell > .container::before {
+        height: 60px;
+        padding: 0 1rem;
+    }
+
+    .student-shell > .container::after {
+        right: 1rem;
+        height: 60px;
+        font-size: 0.76rem;
+    }
+
+    .ai-interview-shell > .container::before {
+        padding: 0 1rem;
+    }
+
+    .ai-interview-shell > .container::after {
+        right: 1rem;
+        height: 60px;
+        font-size: 0.76rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .student-shell .student-sidebar {
+        padding: 0.5rem 0.7rem !important;
+    }
+
+    .student-shell .student-sidebar .brand-badge {
+        width: 112px;
+        height: 40px;
+    }
+
+    .student-shell .student-sidebar .nav-link {
+        padding: 0.5rem 0.6rem;
+    }
+
+    .student-shell .content-panel {
+        padding: 0.8rem;
+    }
+
+    .student-shell .content-panel::after,
+    .ai-interview-shell > .container::after {
+        right: 0.8rem;
+    }
+
+    .student-shell .page-header {
+        margin-bottom: 1rem;
+    }
+
+    .student-shell .summary-card,
+    .student-shell .timeline-card,
+    .student-shell .list-card,
+    .student-shell .feature-card,
+    .student-shell .company-card,
+    .student-shell .question-card {
+        padding: 1rem;
+    }
+
+    .student-shell .action-row .btn {
+        flex: 1 1 100%;
+    }
+
+    .student-shell .table {
+        min-width: 540px;
+    }
+
+    .ai-interview-shell > .container {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+    }
+
+    .ai-interview-shell .video-panel,
+    .ai-interview-shell .transcript-box,
+    .ai-interview-shell .timeline-card {
+        padding: 1rem !important;
+    }
+}

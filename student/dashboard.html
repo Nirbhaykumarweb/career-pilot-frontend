@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Pilot | Student Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/responsive.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+</head>
+
+<body class="student-shell">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <aside class="col-lg-2 student-sidebar p-3">
+                <div class="d-flex align-items-center mb-4">
+                    <span class="brand-badge"><img
+                            src="..\carreer_pilot_logo.png"
+                            alt="Career Pilot logo" /></span>
+                </div>
+                <nav class="nav flex-column">
+                    <a class="nav-link active" href="dashboard.html"><i class="fa-solid fa-gauge me-2"></i>Dashboard</a>
+                    <a class="nav-link" href="companies.html"><i class="fa-solid fa-building me-2"></i>Companies</a>
+                    <a class="nav-link" href="interview-preparation.html"><i
+                            class="fa-solid fa-book-open me-2"></i>Preparation</a>
+                    <a class="nav-link" href="questions.html"><i
+                            class="fa-solid fa-question-circle me-2"></i>Questions</a>
+                    <a class="nav-link" href="dsa.html"><i class="fa-solid fa-code me-2"></i>DSA</a>
+                    <a class="nav-link" href="aptitude.html"><i class="fa-solid fa-brain me-2"></i>Aptitude</a>
+                    <a class="nav-link" href="projects.html"><i
+                            class="fa-solid fa-diagram-project me-2"></i>Projects</a>
+                    <a class="nav-link" href="ai-interview.html?source=student"><i class="fa-solid fa-robot me-2"></i>AI Interview</a>
+                    <a class="nav-link" href="interview-experience.html"><i
+                            class="fa-solid fa-comments me-2"></i>Experiences</a>
+                    <a class="nav-link" href="progress.html"><i class="fa-solid fa-chart-line me-2"></i>Progress</a>
+                    <a class="nav-link" href="saved.html"><i class="fa-solid fa-bookmark me-2"></i>Saved</a>
+                    <a class="nav-link" href="profile.html"><i class="fa-solid fa-user me-2"></i>Profile</a>
+                    <a class="nav-link" href="settings.html"><i class="fa-solid fa-gear me-2"></i>Settings</a>
+                    <a class="nav-link" href="../index.html"><i
+                            class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
+                </nav>
+            </aside>
+
+            <main class="col-lg-10 content-panel">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2 class="mb-1">Welcome back, Student!</h2>
+                        <p class="text-muted-soft mb-0">Your placement journey is progressing steadily.</p>
+                    </div>
+                    <a href="companies.html" class="btn btn-primary">Explore Companies</a>
+                </div>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="summary-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted-soft">Preparation Progress</span>
+                                <span class="stat-pill">78%</span>
+                            </div>
+                            <div class="metric-value">78%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="summary-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted-soft">Questions Solved</span>
+                                <span class="stat-pill">245</span>
+                            </div>
+                            <div class="metric-value">245</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="summary-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted-soft">Mock Interviews</span>
+                                <span class="stat-pill">14</span>
+                            </div>
+                            <div class="metric-value">14</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="summary-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted-soft">Interview Readiness</span>
+                                <span class="stat-pill">82%</span>
+                            </div>
+                            <div class="metric-value">82%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-8">
+                        <div class="timeline-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0">Current Target Company</h4>
+                                <span class="chip">TCS</span>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="list-card h-100">
+                                        <div class="text-muted-soft">Job Role</div>
+                                        <h5 class="mt-2 mb-0">Software Engineer</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="list-card h-100">
+                                        <div class="text-muted-soft">Approx Package</div>
+                                        <h5 class="mt-2 mb-0">₹7.5 LPA</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="fw-semibold">Upcoming Preparation</span>
+                                    <span class="text-muted-soft">DSA + HR Round</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-primary" data-progress="72" style="width: 72%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="timeline-card">
+                            <h4 class="mb-3">Recommended Preparation</h4>
+                            <div class="d-flex flex-column gap-3">
+                                <div class="list-card">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="fw-semibold">Aptitude</span>
+                                        <span class="chip">Next</span>
+                                    </div>
+                                </div>
+                                <div class="list-card">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="fw-semibold">DSA Arrays</span>
+                                        <span class="chip">3 tasks</span>
+                                    </div>
+                                </div>
+                                <div class="list-card">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="fw-semibold">HR Interview</span>
+                                        <span class="chip">2 tips</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <div class="timeline-card">
+                            <h4 class="mb-3">Recent Activity</h4>
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item px-0 py-3 d-flex justify-content-between">
+                                    <div>
+                                        <div class="fw-semibold">Solved aptitude quiz</div>
+                                        <small class="text-muted-soft">Today • 8:40 AM</small>
+                                    </div>
+                                    <span class="badge bg-success-subtle text-success">Completed</span>
+                                </div>
+                                <div class="list-group-item px-0 py-3 d-flex justify-content-between">
+                                    <div>
+                                        <div class="fw-semibold">Practiced DSA arrays</div>
+                                        <small class="text-muted-soft">Yesterday • 6:15 PM</small>
+                                    </div>
+                                    <span class="badge bg-primary-subtle text-primary">In Progress</span>
+                                </div>
+                                <div class="list-group-item px-0 py-3 d-flex justify-content-between">
+                                    <div>
+                                        <div class="fw-semibold">AI mock interview completed</div>
+                                        <small class="text-muted-soft">Monday • 11:10 AM</small>
+                                    </div>
+                                    <span class="badge bg-warning-subtle text-warning">Reviewed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="timeline-card">
+                            <h4 class="mb-3">Upcoming Preparation</h4>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-3"><strong>Today</strong><br><span class="text-muted-soft">Aptitude
+                                        practice • 30 mins</span></li>
+                                <li class="mb-3"><strong>Tomorrow</strong><br><span class="text-muted-soft">DSA
+                                        medium-level coding questions • 45 mins</span></li>
+                                <li><strong>Friday</strong><br><span class="text-muted-soft">Project discussion and HR
+                                        Q&A</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/student.js"></script>
+</body>
+
+</html>
